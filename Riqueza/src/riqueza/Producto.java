@@ -10,7 +10,8 @@ package riqueza;
  * @author jcfalcon
  */
 class Producto {
-    String nombre;
+    enum tipo {a,b,c};
+    tipo nombre;
     int cantidad;
     int precio;
 }
