@@ -11,5 +11,6 @@ package riqueza;
  */
 class Producto {
     String nombre;
-    String cantidad;
+    int cantidad;
+    int precio;
 }
