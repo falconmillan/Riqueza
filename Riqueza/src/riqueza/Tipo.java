@@ -9,10 +9,6 @@ package riqueza;
  *
  * @author jcfalcon
  */
-class Producto {
-    
-    Tipo nombre;
-    int cantidad;
-    int precio;
-    int perece;
+class Tipo {
+    public enum tipo {a,b,c};
 }

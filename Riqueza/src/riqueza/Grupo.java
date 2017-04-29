@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author jcfalcon
  */
-class Grupos {
+class Grupo {
     int idg;
     String NombreGrupo;
     List <Sujeto> vecinos;

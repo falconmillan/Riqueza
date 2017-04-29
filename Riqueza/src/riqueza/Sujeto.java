@@ -15,7 +15,8 @@ public class Sujeto {
     int id;
     String nombre;
     int cartera;
-    List <Grupos> grupos;
-    List <Producto> producto;
-    List <Producto> necesidades;
+    List <Grupo> grupos;
+    List <Producto> venta;
+    List <Producto> compra;
+    static List <Producto> necesidades;
 }
