@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Poblacion {
 
-    
+    //Listado de grupos y sujetos
     List <Sujeto> sujetos;
     List <Grupo> grupos;
 }

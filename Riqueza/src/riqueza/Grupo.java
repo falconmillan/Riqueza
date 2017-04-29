@@ -15,4 +15,29 @@ class Grupo {
     int idg;
     String NombreGrupo;
     List <Sujeto> vecinos;
+
+    public int getIdg() {
+        return idg;
+    }
+
+    public void setIdg(int idg) {
+        this.idg = idg;
+    }
+
+    public String getNombreGrupo() {
+        return NombreGrupo;
+    }
+
+    public void setNombreGrupo(String NombreGrupo) {
+        this.NombreGrupo = NombreGrupo;
+    }
+
+    public List<Sujeto> getVecinos() {
+        return vecinos;
+    }
+
+    public void setVecinos(List<Sujeto> vecinos) {
+        this.vecinos = vecinos;
+    }
+    
 }
