@@ -16,7 +16,8 @@ public class Riqueza {
      */
     public static void main(String[] args) {
         //Poblacion es el escenario inicial.
-        
+        Poblacion escenario=new Poblacion();
+        escenario.init();
     }
     
 }

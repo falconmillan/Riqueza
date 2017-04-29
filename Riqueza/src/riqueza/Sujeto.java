@@ -109,6 +109,7 @@ public class Sujeto {
         for( Producto v : venta ){
             Producto p=(Producto) v;
             p.setCantidad(p.getCantidad()+ (int)(p.getMaxProd()*x));
-        }
+        }      
     }
+    
 }
