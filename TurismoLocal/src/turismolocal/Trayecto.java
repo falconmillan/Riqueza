@@ -5,6 +5,7 @@
  */
 package turismolocal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,10 +27,13 @@ public class Trayecto {
         this.traza = traza;
         this.modalidad = modalidad;
         this.Servicios = Servicios;
+        this.puntosTuristicos= new ArrayList<>();
+        this.traza= new ArrayList<>();
     }
 
     public Trayecto() {
-        
+        this.puntosTuristicos= new ArrayList<>();
+        this.traza= new ArrayList<>();
     }
 
     public int getId() {

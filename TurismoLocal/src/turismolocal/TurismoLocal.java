@@ -46,10 +46,11 @@ public class TurismoLocal {
             //Cada vez que Lista[0] cambia de valor.
             Trayecto t;t=null;
             if(nombreTrayecto.compareTo(lista[0])!=0){
-                //Cambiamos de 
-                if(t!=null)trayectos.add(t);
+                //Cambiamos de                 
+                if(t!=null)trayectos.add(t); //solo ocurre la primera vez
                 nombreTrayecto=lista[0];
                 t= new Trayecto(n,lista[0],null,"pedereste",0);
+            }
                 //O son coordenadas normales o monumento
                 if(lista[1].length()==0){
                     //Coordenadas normales
@@ -60,10 +61,9 @@ public class TurismoLocal {
                     //Monumento
                     Monumento m= new Monumento(lista[1],lista[5],Double.parseDouble(lista[2]),Double.parseDouble(lista[3]),
                             Double.parseDouble(lista[4]),lista[6]);
+                    t.getPuntosTuristicos().add(m);                   
                 }
-            }else{
-                
-            }
+            
             
             
         }
