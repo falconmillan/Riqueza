@@ -31,10 +31,20 @@ public class TurismoLocal {
      List<Trayecto> trayectos=new ArrayList<>();
      File entrada= new File("C:\\Users\\jcfalcon\\Documents\\documentosJava\\RutasGPS.csv");        
      trayectos=datosFromCsv(entrada,";");
-
+     
+     //Salida de datos:
+     for(Trayecto t : trayectos){
+       System.out.print("Trayecto:"+t.getNombre()+" ");
+       System.out.println( "Modalidad:"+t.getModalidad());
+        for(Monumento p : t.getPuntosTuristicos()){
+          System.out.println( "        "+p.getLugar()+":"+p.getLatitud()+","+p.getLongitud());  
+            
+        }
+     }
+     }
    
        
-    }
+    
       
 
 public static List<Trayecto> datosFromCsv(File entrada,String separador ){
@@ -63,12 +73,12 @@ public static List<Trayecto> datosFromCsv(File entrada,String separador ){
                 //O son coordenadas normales o monumento
                 if(lista[1].length()==0){
                     //Coordenadas normales
-                    Coordenadas c=new Coordenadas(Double.parseDouble(lista[2]),
-                            Double.parseDouble(lista[3]),Double.parseDouble(lista[4]));
+                    Coordenadas c=new Coordenadas(Double.parseDouble(lista[3]),
+                            Double.parseDouble(lista[2]),Double.parseDouble(lista[4]));
                 boolean add = t.getTraza().add(c);
                 }else{
                     //Monumento
-                    Monumento m= new Monumento(lista[1],lista[5],Double.parseDouble(lista[2]),Double.parseDouble(lista[3]),
+                    Monumento m= new Monumento(lista[1],lista[5],Double.parseDouble(lista[3]),Double.parseDouble(lista[2]),
                             Double.parseDouble(lista[4]),lista[6]);
                     t.getPuntosTuristicos().add(m);                   
                 }
