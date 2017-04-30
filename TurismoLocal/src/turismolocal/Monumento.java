@@ -10,42 +10,44 @@ package turismolocal;
  * @author jcfalcon
  */
 public class Monumento extends Coordenadas {
-    private String Lugar;
-    private String Poblacion;
-    private String Descripcion;
+    private String lugar;
+    private String poblacion;
+    private String descripcion;
 
     public Monumento(double longitud, double latitud) {
         super(longitud, latitud);
     }
 
-    public Monumento(String Lugar, String Poblacion, double longitud, double latitud) {
+    public Monumento(String Lugar, String Poblacion, double longitud, double latitud, String descripcion) {
         super(longitud, latitud);
-        this.Lugar = Lugar;
-        this.Poblacion = Poblacion;
+        this.lugar = Lugar;
+        this.poblacion = Poblacion;
+        this.descripcion=descripcion;
+  
     }
 
     public String getLugar() {
-        return Lugar;
+        return lugar;
     }
 
-    public void setLugar(String Lugar) {
-        this.Lugar = Lugar;
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
     public String getPoblacion() {
-        return Poblacion;
+        return poblacion;
     }
 
-    public void setPoblacion(String Poblacion) {
-        this.Poblacion = Poblacion;
+    public void setPoblacion(String poblacion) {
+        this.poblacion = poblacion;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-    
+
 }

@@ -17,6 +17,7 @@ public class Coordenadas {
     public Coordenadas(double longitud, double latitud) {
         this.longitud = longitud;
         this.latitud = latitud;
+        this.altitud=0;
     }
 
     public double getLongitud() {
@@ -51,4 +52,5 @@ public class Coordenadas {
         return r;
         
     }
+    
 }
