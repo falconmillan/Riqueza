@@ -30,6 +30,7 @@ public class TurismoLocal {
      //Aqui tengo un conjunto de trayectos compuestos por Monumentos y coordenadas
      List<Trayecto> trayectos=new ArrayList<>();
     
+    
 
     //Fichero de texto en formato CSV
     try {
@@ -39,12 +40,13 @@ public class TurismoLocal {
         en.readLine();
         String nombreTrayecto="";
         int n=0;
+        Trayecto t;t=null;
         while(en.ready()){
             String cadena=en.readLine();
             //Teiene que estar dividido en siete partes
             String[] lista; lista=cadena.split(";");
             //Cada vez que Lista[0] cambia de valor.
-            Trayecto t;t=null;
+            
             if(nombreTrayecto.compareTo(lista[0])!=0){
                 //Cambiamos de                 
                 if(t!=null)trayectos.add(t); //solo ocurre la primera vez
@@ -56,7 +58,7 @@ public class TurismoLocal {
                     //Coordenadas normales
                     Coordenadas c=new Coordenadas(Double.parseDouble(lista[2]),
                             Double.parseDouble(lista[3]),Double.parseDouble(lista[4]));
-                    t.getTraza().add(c);
+                boolean add = t.getTraza().add(c);
                 }else{
                     //Monumento
                     Monumento m= new Monumento(lista[1],lista[5],Double.parseDouble(lista[2]),Double.parseDouble(lista[3]),
