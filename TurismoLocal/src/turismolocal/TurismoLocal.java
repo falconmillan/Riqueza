@@ -29,12 +29,19 @@ public class TurismoLocal {
     public static void main(String[] args) {
      //Aqui tengo un conjunto de trayectos compuestos por Monumentos y coordenadas
      List<Trayecto> trayectos=new ArrayList<>();
-    
-    
+     File entrada= new File("C:\\Users\\jcfalcon\\Documents\\documentosJava\\RutasGPS.csv");        
+     trayectos=datosFromCsv(entrada,";");
 
-    //Fichero de texto en formato CSV
+   
+       
+    }
+      
+
+public static List<Trayecto> datosFromCsv(File entrada,String separador ){
+    List<Trayecto> trayectos=new ArrayList<>();
+     //Fichero de texto en formato CSV
     try {
-        File entrada= new File("C:\\Users\\jcfalcon\\Documents\\documentosJava\\RutasGPS.csv");        
+        
         BufferedReader en= new BufferedReader(new FileReader(entrada));
         //Canal abierto, pierdo la primera linea
         en.readLine();
@@ -44,7 +51,7 @@ public class TurismoLocal {
         while(en.ready()){
             String cadena=en.readLine();
             //Teiene que estar dividido en siete partes
-            String[] lista; lista=cadena.split(";");
+            String[] lista; lista=cadena.split(separador);
             //Cada vez que Lista[0] cambia de valor.
             
             if(nombreTrayecto.compareTo(lista[0])!=0){
@@ -75,7 +82,6 @@ public class TurismoLocal {
     }   catch (IOException ex) {
             Logger.getLogger(TurismoLocal.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-    }
-      
+    return trayectos;
+} 
 }
