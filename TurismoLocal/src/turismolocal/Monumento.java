@@ -25,6 +25,13 @@ public class Monumento extends Coordenadas {
         this.descripcion=descripcion;
   
     }
+     public Monumento(String Lugar, String Poblacion, double longitud, double latitud,double altitud, String descripcion) {
+        super(longitud, latitud,altitud);
+        this.lugar = Lugar;
+        this.poblacion = Poblacion;
+        this.descripcion=descripcion;
+  
+    }
 
     public String getLugar() {
         return lugar;

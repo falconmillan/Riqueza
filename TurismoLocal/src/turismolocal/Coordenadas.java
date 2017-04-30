@@ -19,7 +19,11 @@ public class Coordenadas {
         this.latitud = latitud;
         this.altitud=0;
     }
-
+ public Coordenadas(double longitud, double latitud, double altitud) {
+        this.longitud = longitud;
+        this.latitud = latitud;
+        this.altitud=altitud;
+    }
     public double getLongitud() {
         return longitud;
     }
