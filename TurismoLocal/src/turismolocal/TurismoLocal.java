@@ -31,6 +31,9 @@ public class TurismoLocal {
      List<Trayecto> trayectos=new ArrayList<>();
      File entrada= new File("C:\\Users\\jcfalcon\\Documents\\documentosJava\\RutasGPS.csv");        
      trayectos=datosFromCsv(entrada,";");
+     TurismoLocalNeoDatis tlnd=new TurismoLocalNeoDatis();
+     tlnd.init(trayectos);
+     
      
      //Salida de datos:
      for(Trayecto t : trayectos){
