@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TurismoLocal">
+  <ClassDiagramComponents>
+    <Class name="Coordenadas" package="turismolocal" visibility="public" xPosition="93.0" yPosition="-97.0">
+      <Fields>
+        <Field name="longitud" type="double" visibility="private"/>
+        <Field name="latitud" type="double" visibility="private"/>
+        <Field name="altitud" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="longitud"/>
+          <Argument type="double" name="latitud"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="double" name="longitud"/>
+          <Argument type="double" name="latitud"/>
+          <Argument type="double" name="altitud"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLongitud" returnType="double" visibility="public"/>
+        <Method name="setLongitud" returnType="void" visibility="public">
+          <Argument type="double" name="longitud"/>
+        </Method>
+        <Method name="getLatitud" returnType="double" visibility="public"/>
+        <Method name="setLatitud" returnType="void" visibility="public">
+          <Argument type="double" name="latitud"/>
+        </Method>
+        <Method name="getAltitud" returnType="double" visibility="public"/>
+        <Method name="setAltitud" returnType="void" visibility="public">
+          <Argument type="double" name="altitud"/>
+        </Method>
+        <Method name="distancia" returnType="double" visibility="public">
+          <Argument type="Coordenadas" name="a"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Monumento" package="turismolocal" visibility="public" xPosition="536.0" yPosition="286.0">
+      <Fields>
+        <Field name="lugar" type="String" visibility="private"/>
+        <Field name="poblacion" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="longitud"/>
+          <Argument type="double" name="latitud"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="Lugar"/>
+          <Argument type="String" name="Poblacion"/>
+          <Argument type="double" name="longitud"/>
+          <Argument type="double" name="latitud"/>
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="Lugar"/>
+          <Argument type="String" name="Poblacion"/>
+          <Argument type="double" name="longitud"/>
+          <Argument type="double" name="latitud"/>
+          <Argument type="double" name="altitud"/>
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLugar" returnType="String" visibility="public"/>
+        <Method name="setLugar" returnType="void" visibility="public">
+          <Argument type="String" name="lugar"/>
+        </Method>
+        <Method name="getPoblacion" returnType="String" visibility="public"/>
+        <Method name="setPoblacion" returnType="void" visibility="public">
+          <Argument type="String" name="poblacion"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Trayecto" package="turismolocal" visibility="public" xPosition="333.0" yPosition="481.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="puntosTuristicos" type="List&lt;Monumento&gt;" visibility="private"/>
+        <Field name="traza" type="List&lt;Coordenadas&gt;" visibility="private"/>
+        <Field name="modalidad" type="String" visibility="private"/>
+        <Field name="Servicios" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="List&lt;Coordenadas&gt;" name="traza"/>
+          <Argument type="String" name="modalidad"/>
+          <Argument type="int" name="Servicios"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getPuntosTuristicos" returnType="List&lt;Monumento&gt;" visibility="public"/>
+        <Method name="setPuntosTuristicos" returnType="void" visibility="public">
+          <Argument type="List&lt;Monumento&gt;" name="puntosTuristicos"/>
+        </Method>
+        <Method name="getTraza" returnType="List&lt;Coordenadas&gt;" visibility="public"/>
+        <Method name="setTraza" returnType="void" visibility="public">
+          <Argument type="List&lt;Coordenadas&gt;" name="traza"/>
+        </Method>
+        <Method name="getModalidad" returnType="String" visibility="public"/>
+        <Method name="setModalidad" returnType="void" visibility="public">
+          <Argument type="String" name="modalidad"/>
+        </Method>
+        <Method name="getServicios" returnType="int" visibility="public"/>
+        <Method name="setServicios" returnType="void" visibility="public">
+          <Argument type="int" name="Servicios"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TurismoLocal" package="turismolocal" visibility="public" xPosition="536.0" yPosition="95.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="traza" source="turismolocal.Trayecto" target="turismolocal.Coordenadas" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Coordenadas&gt;"/>
+    <UseRelation source="turismolocal.Coordenadas" target="turismolocal.Coordenadas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="turismolocal.Trayecto" target="turismolocal.Monumento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="turismolocal.Monumento" target="turismolocal.Coordenadas"/>
+    <UseRelation source="turismolocal.Trayecto" target="turismolocal.Coordenadas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="puntosTuristicos" source="turismolocal.Trayecto" target="turismolocal.Monumento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Monumento&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
