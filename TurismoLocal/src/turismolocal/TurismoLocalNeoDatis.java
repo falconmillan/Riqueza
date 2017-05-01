@@ -15,7 +15,7 @@ import org.neodatis.odb.ODBFactory;
  */
 public class TurismoLocalNeoDatis {
     String ruta="C:\\Users\\jcfalcon\\Documents\\documentosJava\\";
-    String base="TurimoLocal.neodatis";
+    String base="TurimoLocal1.neodatis";
     public void init(List<Trayecto> trayectos){
         //Definimos la base de datos, que creamos tal y como vien arriba
         ODB odb= ODBFactory.open(ruta+base);
@@ -24,12 +24,13 @@ public class TurismoLocalNeoDatis {
         // y coordenadas que me vaya encontrando.
         for(Trayecto t:trayectos){
                 //Monumetos
-                for(Monumento m : t.getPuntosTuristicos())odb.store(m);
+                //for(Monumento m : t.getPuntosTuristicos())odb.store(m);
                 //y coordenadas peladas
-                for(Coordenadas c : t.getTraza())odb.store(c);
+                //for(Coordenadas c : t.getTraza())odb.store(c);
                 //Para termnar grabando el propio elemento
                 odb.store(t);
         }
+        
         //cerramos la base
         odb.close();
     }

@@ -29,22 +29,26 @@ public class TurismoLocal {
     public static void main(String[] args) {
      //Aqui tengo un conjunto de trayectos compuestos por Monumentos y coordenadas
      List<Trayecto> trayectos=new ArrayList<>();
+     
      File entrada= new File("C:\\Users\\jcfalcon\\Documents\\documentosJava\\RutasGPS.csv");        
-     trayectos=datosFromCsv(entrada,";");
-     TurismoLocalNeoDatis tlnd=new TurismoLocalNeoDatis();
+    //La base de datos ya está creada. Ahora...a Hacer preguntas.
+    
+
+    trayectos=datosFromCsv(entrada,";");
+    TurismoLocalNeoDatis tlnd=new TurismoLocalNeoDatis();
      tlnd.init(trayectos);
      
      
-     //Salida de datos:
+     /*Salida de datos:
      for(Trayecto t : trayectos){
        System.out.print("Trayecto:"+t.getNombre()+" ");
        System.out.println( "Modalidad:"+t.getModalidad());
         for(Monumento p : t.getPuntosTuristicos()){
           System.out.println( "        "+p.getLugar()+":"+p.getLatitud()+","+p.getLongitud());  
             
-        }
+        }*/
      }
-     }
+     
    
        
     
