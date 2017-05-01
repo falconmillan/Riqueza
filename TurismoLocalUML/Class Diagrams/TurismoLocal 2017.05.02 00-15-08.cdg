@@ -2,7 +2,7 @@
 
 <ClassDiagram name="TurismoLocal">
   <ClassDiagramComponents>
-    <Class name="Coordenadas" package="turismolocal" visibility="public" xPosition="75.0" yPosition="-259.0">
+    <Class name="Coordenadas" package="turismolocal" visibility="public" xPosition="564.0" yPosition="470.0">
       <Fields>
         <Field name="longitud" type="double" visibility="private"/>
         <Field name="latitud" type="double" visibility="private"/>
@@ -37,7 +37,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Monumento" package="turismolocal" visibility="public" xPosition="466.0" yPosition="242.0">
+    <Class name="Monumento" package="turismolocal" visibility="public" xPosition="-349.0" yPosition="172.0">
       <Fields>
         <Field name="lugar" type="String" visibility="private"/>
         <Field name="poblacion" type="String" visibility="private"/>
@@ -79,7 +79,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Trayecto" package="turismolocal" visibility="public" xPosition="118.0" yPosition="-399.0">
+    <Class name="Trayecto" package="turismolocal" visibility="public" xPosition="872.0" yPosition="41.0">
       <Fields>
         <Field name="id" type="int" visibility="private"/>
         <Field name="nombre" type="String" visibility="private"/>
@@ -125,22 +125,40 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="TurismoLocal" package="turismolocal" visibility="public" xPosition="455.0" yPosition="62.0">
+    <Class name="TurismoLocal" package="turismolocal" visibility="public" xPosition="890.0" yPosition="306.0">
       <Fields/>
       <Constructors/>
       <Methods>
         <Method name="main" returnType="void" visibility="public" isStatic="true">
           <Argument type="String[]" name="args"/>
         </Method>
+        <Method name="datosFromCsv" returnType="List&lt;Trayecto&gt;" visibility="public" isStatic="true">
+          <Argument type="File" name="entrada"/>
+          <Argument type="String" name="separador"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TurismoLocalNeoDatis" package="turismolocal" visibility="public" xPosition="-271.0" yPosition="418.0">
+      <Fields>
+        <Field name="ruta" type="String" visibility="package"/>
+        <Field name="base" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="List&lt;Trayecto&gt;" name="trayectos"/>
+        </Method>
       </Methods>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
     <HasRelation name="puntosTuristicos" source="turismolocal.Trayecto" target="turismolocal.Monumento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Monumento&gt;"/>
-    <UseRelation source="turismolocal.Trayecto" target="turismolocal.Monumento" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="turismolocal.Coordenadas" target="turismolocal.Coordenadas" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="turismolocal.Monumento" target="turismolocal.Coordenadas"/>
     <HasRelation name="traza" source="turismolocal.Trayecto" target="turismolocal.Coordenadas" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Coordenadas&gt;"/>
+    <UseRelation source="turismolocal.TurismoLocal" target="turismolocal.Trayecto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="turismolocal.Coordenadas" target="turismolocal.Coordenadas" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="turismolocal.Trayecto" target="turismolocal.Coordenadas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="turismolocal.Trayecto" target="turismolocal.Monumento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="turismolocal.TurismoLocalNeoDatis" target="turismolocal.Trayecto" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
