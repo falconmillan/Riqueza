@@ -8,14 +8,18 @@ package turismolocal;
 import java.util.List;
 import org.neodatis.odb.ODB;
 import org.neodatis.odb.ODBFactory;
+import org.neodatis.odb.Objects;
+import org.neodatis.odb.core.query.criteria.ICriterion;
+import org.neodatis.odb.core.query.criteria.Where;
+import org.neodatis.odb.impl.core.query.criteria.CriteriaQuery;
 
 /**
  *
  * @author jcfalcon
  */
 public class TurismoLocalNeoDatis {
-    String ruta="C:\\Users\\jcfalcon\\Documents\\documentosJava\\";
-    String base="TurimoLocal1.neodatis";
+    String ruta="C:\\Users\\Usuario\\Documents\\documentosJava\\";
+    String base="TurimoLocal.neodatis";
     public void init(List<Trayecto> trayectos){
         //Definimos la base de datos, que creamos tal y como vien arriba
         ODB odb= ODBFactory.open(ruta+base);
@@ -34,4 +38,15 @@ public class TurismoLocalNeoDatis {
         //cerramos la base
         odb.close();
     }
+    public Trayecto recupera_Trayecto(String regexpresion){
+        Trayecto r=null;
+        ODB odb= ODBFactory.open(ruta+base);
+        ICriterion criterio= Where.like("nombre",regexpresion);
+        CriteriaQuery query = new CriteriaQuery(Trayecto.class, criterio);
+        Objects<Trayecto>  t = odb.getObjects(query);
+        if(t.size()!=0) r=t.getFirst();
+        odb.close();
+        return r;
+    }
+    
 }

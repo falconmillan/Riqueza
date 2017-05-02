@@ -30,7 +30,8 @@ public class TurismoLocal {
      //Aqui tengo un conjunto de trayectos compuestos por Monumentos y coordenadas
      List<Trayecto> trayectos=new ArrayList<>();
      
-     File entrada= new File("C:\\Users\\jcfalcon\\Documents\\documentosJava\\RutasGPS.csv");        
+     File entrada= new File("C:\\Users\\Usuario\\Documents\\documentosJava\\RutasGPS.csv");    
+     
     //La base de datos ya está creada. Ahora...a Hacer preguntas.
     
 
