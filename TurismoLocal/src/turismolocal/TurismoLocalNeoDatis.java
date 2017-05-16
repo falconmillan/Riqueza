@@ -40,6 +40,11 @@ public class TurismoLocalNeoDatis {
         odb.close();
          }
         public void consulta4(){
+            /*
+            Listado del trayecto de 
+            mondragón con una media de 
+            altura de todas sus coordenadas.
+            */
         ODB odb= ODBFactory.open(ruta+base);
         //reuperamos Todos lo puntos de Mondragón
         ICriterion criterio=Where.like("nombre","Mondragón");
@@ -72,8 +77,69 @@ public class TurismoLocalNeoDatis {
         odb.close();   
         }
         
+        public void consulta5(){
+            /*
+            Listado del Trayecto de Ezcaray(Rioja) 
+            con el número de monumentos.
+            */
+        ODB odb= ODBFactory.open(ruta+base);
+        //reuperamos Todos lo puntos de Mondragón
+        ICriterion criterio=Where.like("nombre","Ezacaray");
+        IQuery q=new CriteriaQuery(Trayecto.class, criterio);
+        //Lanzamos la query
+        Objects<Trayecto> objects = odb.getObjects(q);
+        //El objeto en principio tiene que ser uno, si no, 
+        //algo raro ha pasado
+        if(objects.size()==1){
+            Trayecto t=(Trayecto)objects.next();
+            int nmonumentos=0;
+            System.out.println("COORDENADAS DE LA RUTA DE Ezcaray(Rioja)");
+            System.out.println("---------------------------------------");
+            //Recupero la traza.
+            for(Coordenadas c: t.getTraza()){
+                System.out.println("Lat:"+c.getLatitud()+" Long:"+c.getLongitud());
+                
+                        }
+            System.out.println("MONUMENTOS DE LA RUTA DE Ezcaray(Rioja)");
+            System.out.println("---------------------------------------");
+            for(Monumento m: t.getPuntosTuristicos()){
+                System.out.println("Lat: "+m.getLatitud()+" Long: "+m.getLongitud()+" Nombre: "+m.getLugar() );
+                nmonumentos=nmonumentos+1;
+                        }
+            System.out.println("Un total de : "+nmonumentos+ "monumentos");
+        }else{
+            System.out.println(objects.size()+" resultados. Se esperaba un solo reultado en la recuperación "
+                    + "de trayectos con nombre Ezcaray(Rioja)");   
+        }
         
-    
+        odb.close();   
+        }
+         
+    public void consulta6(){
+        /*
+        Listado de todos los trayectos con 
+        la media de altura de sus coordenadas.
+        */
+        ODB odb= ODBFactory.open(ruta+base);
+        //reuperamos Todos lo puntos de Mondragón
+        IQuery q=new CriteriaQuery(Trayecto.class);
+        //Lanzamos la query
+        Objects<Trayecto> objects = odb.getObjects(q);
+        //Y recorremos todos los items
+        System.out.println("TRAYECTOS");
+        System.out.println("---------");
+        for(Trayecto t: objects){
+            
+            double total;
+            
+            total=(t.alturaMediaPuntosTuristicos()+
+                    t.alturaMediaTraza())/2.; 
+            
+            System.out.println("NOMBRE: "+t.getNombre()+
+                    " ALTURA MEDIA (TRAZA Y MONUMENTOS)"+total);
+        }
+        odb.close();
+    }
     public Trayecto recupera_Trayecto(String regexpresion){
         Trayecto r=null;
         ODB odb= ODBFactory.open(ruta+base);

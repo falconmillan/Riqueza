@@ -83,5 +83,27 @@ public class Trayecto {
     public void setServicios(int Servicios) {
         this.Servicios = Servicios;
     }
+   public double alturaMediaTraza(){
+       double media=0.0;
+       if(!this.traza.isEmpty()){
+       for(Coordenadas c:this.traza){
+           media=media+c.getAltitud();
+       }
+           media=media/this.traza.size();
+
+       }
+       return media;
+   }
    
+   public double alturaMediaPuntosTuristicos(){
+       double media=0.0;
+       if(!this.puntosTuristicos.isEmpty()){
+       for(Monumento c:this.puntosTuristicos){
+           media=media+c.getAltitud(); 
+       }
+       media=media/this.puntosTuristicos.size();
+       }       
+       return media;
+   }
+       
 }

@@ -39,6 +39,8 @@ public class TurismoLocal {
     TurismoLocalNeoDatis tlnd=new TurismoLocalNeoDatis();
     // tlnd.init(trayectos);
      tlnd.consulta4();
+     tlnd.consulta5();
+     tlnd.consulta6();
      
      /*Salida de datos:
      for(Trayecto t : trayectos){
