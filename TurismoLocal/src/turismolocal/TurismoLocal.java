@@ -37,8 +37,8 @@ public class TurismoLocal {
 
     trayectos=datosFromCsv(entrada,";");
     TurismoLocalNeoDatis tlnd=new TurismoLocalNeoDatis();
-     tlnd.init(trayectos);
-     
+    // tlnd.init(trayectos);
+     tlnd.consulta4();
      
      /*Salida de datos:
      for(Trayecto t : trayectos){
